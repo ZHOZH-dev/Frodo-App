@@ -1,0 +1,251 @@
+:root {
+	--task-block-size: 89px;
+}
+
+* {
+	margin: 0;
+	font-family: 'Montserrat', sans-serif;
+}
+
+body {
+	background-image: linear-gradient(90deg, #ff8473 1%, #fff9d2 80%);
+}
+
+header {
+	padding: 15px;
+	color: white;
+	font-size: 30px;
+}
+
+header h1 {
+	margin-left: 100px;
+}
+
+.hr-line {
+	margin: 10px 100px;
+	padding: 0;
+	height: 0;
+	border: none;
+	border-top: 2px solid #717171;
+}
+
+main {
+	position: relative;
+	margin: 50px 115px;
+	width: calc(100vw - 230px);
+	height: 70vh;
+	object-fit: contain;
+	background-image: url('https://www.looper.com/img/gallery/frodo-baggins-12-best-moments-in-the-lord-of-the-rings-franchise-ranked/l-intro-1663422318.jpg');
+	background-size: 100vw 100vh;
+	border-radius: 20px;
+	overflow: auto;
+	box-shadow: 0 0 50px 0px black;
+	display: flex;
+	flex-direction: column;
+}
+
+main::-webkit-scrollbar-track {
+	background-color: #e4e4e4;
+	border-radius: 100px;
+}
+
+main::-webkit-scrollbar {
+	width: 20px;
+}
+
+main::-webkit-scrollbar-thumb {
+	border-radius: 100px;
+	background-image: linear-gradient(
+		180deg,
+		rgb(43, 123, 0) 10%,
+		rgb(0, 125, 106) 60%
+	);
+	box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+}
+
+.no-tasks {
+	color: white;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%);
+	font-size: 40px;
+	font-weight: 900;
+}
+
+.task-input {
+	width: 40vw;
+	padding: 15px;
+	font-size: 25px;
+	font-weight: 900;
+	border-radius: 8px;
+	border: none;
+	background-image: linear-gradient(90deg, #0172af 1%, 20%, #74febd 80%);
+	box-shadow: 8px 8px 10px 6px rgba(0, 0, 0, 0.2);
+}
+
+aside {
+	/* margin-bottom: 25px; */
+	display: flex;
+	/* position: sticky; */
+	justify-content: center;
+	/* top: 100%; */
+	position: relative;
+	bottom: 35px;
+}
+
+.add-button {
+	color: white;
+	border-radius: 8px;
+	font-size: 25px;
+	font-weight: 300;
+	border: none;
+	width: 175px;
+	margin-left: 20px;
+	transition: transform 0.5s;
+	background-color: rgb(0, 125, 106);
+	box-shadow: 8px 8px 10px 6px rgba(0, 0, 0, 0.2);
+}
+
+.add-button:active {
+	opacity: 0.6;
+}
+
+.add-button:hover {
+	transform: scale(1.1);
+	cursor: pointer;
+}
+
+.task-block {
+	display: flex;
+	margin: 10px;
+	flex-direction: column;
+	position: relative;
+	color: black;
+	font-size: 40px;
+	background-color: rgba(255, 255, 255, 0.4);
+	border-radius: 25px;
+	font-weight: 600;
+	width: auto;
+	height: auto;
+	animation: appearFromBottom 0.5s ease forwards;
+}
+
+.task-block p {
+	margin-left: 75px;
+	padding: 20px;
+}
+
+.delete-button {
+	position: absolute;
+	right: 40px;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+}
+
+.delete-button:hover {
+	cursor: pointer;
+	opacity: 0.5;
+}
+
+.delete-button:hover + .task-name {
+	text-decoration: line-through rgb(0, 125, 106) 5px;
+}
+
+.delete-button:active {
+	opacity: 0.5;
+}
+
+.eddit-button {
+	position: absolute;
+	right: 115px;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+}
+
+.eddit-button:hover {
+	cursor: pointer;
+	opacity: 0.5;
+}
+
+.eddit-button:active {
+	opacity: 0.5;
+}
+
+.edit-block {
+	margin-left: 75px;
+	margin-bottom: 10px;
+}
+
+.edit-block .add-button {
+	padding: 15px;
+}
+
+.flying-image {
+	width: 200px;
+	height: 200px;
+	border-radius: 100%;
+	background-size: cover;
+	border: 1px black solid;
+	cursor: pointer;
+	animation: around 3s linear infinite;
+}
+
+.clicker {
+	position: absolute;
+	text-align: center;
+	text-decoration: overline;
+	font-size: larger;
+	font-weight: 700;
+	color: white;
+	z-index: 2002;
+	animation: fly 5s linear infinite;
+}
+
+.bro {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	z-index: 10000;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+
+@keyframes around {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes fly {
+	0% {
+		transform: translateX(0) translateY(0);
+	}
+	25% {
+		transform: translateX(50vw) translateY(20vh);
+	}
+	50% {
+		transform: translateX(85vw) translateY(0);
+	}
+	75% {
+		transform: translateX(40vw) translateY(70vh);
+	}
+	100% {
+		transform: translateX(0) translateY(0);
+	}
+}
+
+@keyframes appearFromBottom {
+	0% {
+		bottom: -50px;
+		opacity: 0;
+	}
+	100% {
+		bottom: 0;
+		opacity: 1;
+	}
+}
